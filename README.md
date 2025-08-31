@@ -1,40 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+School Directory Web Application
+This project is a full-stack web application built as a submission for the Web Development assignment from Reno Platforms. It allows users to add new schools to a directory and view the complete list of schools in a responsive, modern interface.
 
-## Getting Started
+✨ Live Demo
+The application is hosted on Vercel. You can view the live version here:
 
-First, run the development server:
+[Live Demo](https://reno-comapny-assignment.vercel.app/) 
 
-```bash
+ Core Features
+Add New Schools: A dedicated, responsive form to add a new school's details, including its name, address, contact information, and an image.
+
+Form Validation: Client-side validation is implemented using react-hook-form to ensure data integrity (e.g., required fields, valid email format).
+
+Image Uploads: The form supports image uploads, which are stored on the server and linked to the respective school.
+
+Responsive School Listing: All schools are displayed in a responsive, e-commerce-style grid that looks great on both desktop and mobile devices.
+
+Server-Side Rendering (SSR): The main school listing page is server-rendered using getServerSideProps for optimal performance and SEO.
+
+ Tech Stack
+This project was built using a modern, full-stack JavaScript workflow:
+
+Framework: Next.js (React)
+
+Database: MySQL
+
+Styling: Tailwind CSS
+
+Form Management: React Hook Form
+
+API File Handling: Formidable
+
+Deployment: Vercel
+
+ Screenshots
+School Listing Page
+Displays all schools in a responsive card grid, inspired by the assignment's reference.
+
+Add School Form
+A clean, user-friendly form with full validation for all required fields.
+
+ Getting Started (Local Setup)
+To run this project locally, please follow these steps:
+
+1. Prerequisites
+Node.js (v18 or later recommended)
+
+2. Clone the Repository
+git clone 
+cd repo-name
+
+3. Install Dependencies
+npm install
+
+4. Set Up Environment Variables
+Create a new file named .env.local in the root of the project and add your database credentials. Use the .env.local.example file as a template:
+
+# .env.local
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=schooldb
+
+5. Set Up the Database
+The project includes a script to automatically create the database and the schools table. Run the following command:
+
+npm run db:setup
+
+This will connect to your MySQL server using the credentials from your .env.local file and prepare the database.
+
+6. Run the Development Server
+You are now ready to start the application.
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+ Folder Structure
+The project follows the standard Next.js (Pages Router) structure:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+├── components/       # Reusable React components (e.g., SchoolCard)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+├── lib/              # Database connection logic
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+├── pages/            # Application pages and API routes
 
-## Learn More
+│   ├── api/          # Backend API endpoints (e.g., addSchool)
 
-To learn more about Next.js, take a look at the following resources:
+│   ├── addSchool.jsx # The 'Add School' form page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+│   └── index.js      # The main school listing page
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+├── public/           # Static assets
 
-## Deploy on Vercel
+│   └── schoolImages/ # Uploaded school images are stored here
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+├── scripts/          # Database setup script
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+└── styles/           # Global styles and Tailwind CSS config

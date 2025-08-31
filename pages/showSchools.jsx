@@ -1,23 +1,13 @@
-import Link from 'next/link';
 import SchoolCard from '../components/SchoolCard';
-import { query } from '../lib/db';
+import { query } from '../lib/db'; 
 
-export default function Home({ schools }) {
+export default function ShowSchools({ schools }) {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-10">
-          <h1 className="text-4xl font-bold text-gray-800">
-            Best Schools
-          </h1>
-          <Link 
-            href="/addSchool" 
-            className="px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors"
-          >
-            + Add School
-          </Link>
-        </div>
-        
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
+          Our Schools
+        </h1>
         {schools.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {schools.map((school) => (
@@ -25,10 +15,7 @@ export default function Home({ schools }) {
             ))}
           </div>
         ) : (
-          <div className="text-center py-10">
-            <p className="text-gray-500 text-lg">No schools found.</p>
-            <p className="text-gray-400 mt-2">Why not be the first to add one?</p>
-          </div>
+          <p className="text-center text-gray-500">No schools found.</p>
         )}
       </div>
     </div>
